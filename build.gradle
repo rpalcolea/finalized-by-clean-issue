@@ -9,8 +9,8 @@ buildscript {
 allprojects {
 
     apply plugin: 'groovy'
-    apply plugin: MyPlugin
     apply plugin: 'nebula.release'
+    apply plugin: MyPlugin
 
     repositories {
         mavenCentral()
