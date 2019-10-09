@@ -9,7 +9,7 @@ buildscript {
 allprojects {
 
     apply plugin: 'groovy'
-  //  apply plugin: MyPlugin
+    apply plugin: MyPlugin
     apply plugin: 'nebula.release'
 
     repositories {

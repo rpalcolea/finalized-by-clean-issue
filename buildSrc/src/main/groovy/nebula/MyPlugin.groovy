@@ -10,16 +10,13 @@ class MyPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         MyTask myTask = project.tasks.create('hello', MyTask)
-        MyOtherTask otherTask = project.tasks.create('otherTask', MyOtherTask)
-        MyOtherTask2 otherTask2 = project.tasks.create('otherTask2', MyOtherTask2)
-        finalizedBy(project, otherTask)
-        finalizedBy(project, otherTask2)
+        finalizedBy(project, myTask)
 
     }
 
     private void finalizedBy(Project project, Task otherTask) {
         project.tasks.configureEach { Task task ->
-            if (task != otherTask && task.name != 'otherTask2') {
+            if (task != otherTask) {
                 task.finalizedBy otherTask
             }
         }
@@ -33,19 +30,5 @@ class MyTask extends DefaultTask {
     @TaskAction
     void print() {
         println 'Hello, World'
-    }
-}
-
-class MyOtherTask extends DefaultTask {
-    @TaskAction
-    void print() {
-        println 'this is the end'
-    }
-}
-
-class MyOtherTask2 extends DefaultTask {
-    @TaskAction
-    void print() {
-        println 'this is the end, maybe?'
     }
 }
