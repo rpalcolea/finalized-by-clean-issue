@@ -1,0 +1,22 @@
+import nebula.MyPlugin
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'com.netflix.nebula:nebula-release-plugin:13.0.0'
+    }
+}
+
+allprojects {
+
+    apply plugin: 'groovy'
+    apply plugin: MyPlugin
+    apply plugin: 'nebula.release'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'org.codehaus.groovy:groovy-all:2.4.14'
+    }
+}

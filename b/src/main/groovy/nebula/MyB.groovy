@@ -1,0 +1,5 @@
+package nebula
+
+class MyB {
+
+}
